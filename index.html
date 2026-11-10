@@ -1,0 +1,780 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Drishya Media | Visual Growth Studio</title>
+  <meta name="description" content="Drishya Media is a Visual Growth Studio turning your brand's vision into revenue-driving impact through social media, video production, and paid ads." />
+
+  <!-- Google Fonts: Manrope — exact webstacked weights -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- Top Scroll Progress Bar -->
+  <div class="scroll-progress-bar" id="scrollProgressBar"></div>
+
+  <!-- Shreyashfilms Style Subtle Custom Cursor -->
+  <div class="cursor" id="cursor"></div>
+  <div class="cursor-follower" id="cursorFollower"></div>
+
+  <!-- Luxury Page Transition Curtain -->
+  <div class="page-transition-curtain" id="pageCurtain">
+    <div class="curtain-inner">
+      <img src="logo-mark.png" alt="Drishya Media" class="curtain-logo" />
+      <div class="curtain-loader-bar">
+        <div class="curtain-loader-fill"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════
+       NAVBAR — Webstacked Style
+  ════════════════════════════════ -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-inner">
+
+      <!-- Logo — Left: Official Drishya Media Logo -->
+      <a href="#hero" class="nav-logo">
+        <img src="logo-mark.png" alt="Drishya Media Logo" class="nav-logo-img" />
+        <span class="logo-name">Drishya Media</span>
+      </a>
+
+      <!-- Center Nav Links -->
+      <div class="nav-links">
+        <a href="#work" class="nav-link">Work</a>
+        <a href="#services" class="nav-link">Services</a>
+        <a href="#contact" class="nav-link">About &amp; Contact</a>
+      </div>
+
+      <!-- Right: Email + CTA -->
+      <div class="nav-right">
+        <span class="nav-email">Email: agency@drishyamedia.com</span>
+        <a href="#contact" class="btn-contact-nav">Contact us</a>
+      </div>
+
+      <!-- Mobile Hamburger -->
+      <button class="hamburger" id="hamburger" aria-label="Menu">
+        <span></span><span></span>
+      </button>
+
+    </div>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+      <a href="#work" class="mobile-link">Work</a>
+      <a href="#services" class="mobile-link">Services</a>
+      <a href="#contact" class="mobile-link">About &amp; Contact</a>
+      <a href="#contact" class="mobile-link highlight">Contact us →</a>
+    </div>
+  </nav>
+
+  <!-- ═══════════════════════════════
+       HERO SECTION — Webstacked exact layout
+  ════════════════════════════════ -->
+  <section class="hero" id="hero">
+
+    <!-- Hero background diagonal lines (decorative) -->
+    <div class="hero-bg-lines"></div>
+
+    <!-- Hero overlay gradient -->
+    <div class="hero-overlay"></div>
+
+    <div class="hero-inner">
+
+      <!-- Left column: profile + name + socials -->
+      <div class="hero-left">
+        <div class="hero-profile">
+          <div class="hero-avatar-stack">
+            <img src="logo-mark.png" alt="Drishya Media Camera Logo" class="hero-avatar" />
+          </div>
+          <div class="hero-profile-info">
+            <span class="hero-profile-name">Drishya Media</span>
+            <span class="hero-profile-role">Visual Growth Studio</span>
+          </div>
+        </div>
+        <div class="hero-socials">
+          <a href="#" class="social-icon" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+          <a href="#" class="social-icon" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+          <a href="#" class="social-icon" aria-label="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
+        </div>
+        <div class="hero-since">(2026 — PRESENT)</div>
+      </div>
+
+      <!-- Right column: headline + sub + badge -->
+      <div class="hero-right">
+        <!-- Available badge -->
+        <div class="available-badge">
+          <span class="available-dot"></span>
+          Now accepting clients
+        </div>
+
+        <!-- Big headline with inline dark pill tags -->
+        <h1 class="hero-headline">
+          Hi! We're <span class="pill-dark">Drishya Media</span><br>
+          a <span class="pill-black">Visual Growth Studio</span> from <span class="pill-outline">India</span><br>
+          turning your brand's vision into<br>
+          <em>revenue-driving impact</em>
+        </h1>
+
+        <!-- Subtext -->
+        <p class="hero-sub">
+          We craft high-converting social content, viral short-form video,<br>
+          and performance-driven paid ads that move brands from invisible to unstoppable.
+        </p>
+
+        <!-- CTA row -->
+        <div class="hero-cta-row">
+          <a href="#work" class="btn-primary">View our work ↓</a>
+          <a href="#contact" class="btn-secondary">Book a call ↗</a>
+        </div>
+
+        <!-- Softwares Corner: Smolish Teaser Bar -->
+        <div class="softwares-corner-teaser">
+          <div class="soft-teaser-tag">
+            <span class="soft-glow-dot"></span>
+            <span>Production Suite:</span>
+          </div>
+          <div class="soft-chips-row">
+            <div class="soft-chip premiere" title="Adobe Premiere Pro">
+              <span class="soft-chip-icon pr">Pr</span>
+              <span class="soft-chip-label">Premiere Pro</span>
+            </div>
+            <div class="soft-chip capcut" title="CapCut">
+              <span class="soft-chip-icon cc">
+                <svg viewBox="0 0 24 24" width="13" height="13" fill="currentColor"><path d="M4 6.5l8 5.5-8 5.5V6.5zm8 0l8 5.5-8 5.5V6.5z"/></svg>
+              </span>
+              <span class="soft-chip-label">CapCut</span>
+            </div>
+            <div class="soft-chip canva" title="Canva">
+              <span class="soft-chip-icon canva-icon">
+                <svg viewBox="0 0 24 24" width="13" height="13" fill="currentColor"><circle cx="12" cy="12" r="10" fill="#00C4CC"/><text x="12" y="16" font-size="12" font-family="'Playfair Display', serif" font-weight="bold" fill="white" text-anchor="middle">C</text></svg>
+              </span>
+              <span class="soft-chip-label">Canva</span>
+            </div>
+            <div class="soft-chip figma" title="Figma">
+              <span class="soft-chip-icon figma-icon">
+                <svg width="11" height="14" viewBox="0 0 38 57" fill="none"><path d="M10 57c5.523 0 10-4.477 10-10V37H10a10 10 0 0 0 0 20z" fill="#0ACF83"/><path d="M0 28.5A10 10 0 0 1 10 18.5h10v20H10A10 10 0 0 1 0 28.5z" fill="#A259FF"/><path d="M0 9.5A10 10 0 0 1 10-.5h10v20H10A10 10 0 0 1 0 9.5z" fill="#F24E1E"/><path d="M20-.5h10a10 10 0 0 1 0 20H20V-.5z" fill="#FF7262"/><path d="M40 28.5a10 10 0 1 1-20 0 10 10 0 0 1 20 0z" fill="#1ABCFE"/></svg>
+              </span>
+              <span class="soft-chip-label">Figma</span>
+            </div>
+            <div class="soft-chip lightroom" title="Adobe Lightroom">
+              <span class="soft-chip-icon lr">Lr</span>
+              <span class="soft-chip-label">Lightroom</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- Interactive Page 1 to Page 2 Gateway -->
+    <a href="#numbers" class="hero-page-indicator" id="heroPageIndicator" aria-label="Scroll to Section 2">
+      <div class="indicator-mouse">
+        <div class="indicator-wheel"></div>
+      </div>
+      <div class="indicator-label">
+        <span>EXPLORE IMPACT</span>
+        <span class="indicator-arrow">↓</span>
+      </div>
+    </a>
+  </section>
+
+  <!-- ═══════════════════════════════
+       NUMBERS / STATS SECTION — Overlapping Page 2 Stack
+  ════════════════════════════════ -->
+  <section class="numbers-section page-stack-overlap" id="numbers">
+    <div class="numbers-top">
+      <div class="numbers-label">
+        <span class="label-arrow">↳</span> Let's talk
+      </div>
+      <div class="numbers-headline">
+        Our work speaks through numbers.<br>Here's what we've achieved so far.
+      </div>
+    </div>
+    <div class="stats-grid">
+      <div class="stat-item">
+        <div class="stat-number" data-target="50">0</div>
+        <div class="stat-suffix">+</div>
+        <div class="stat-divider"></div>
+        <div class="stat-label">Brands grown</div>
+        <div class="stat-desc">Helping brands make their mark online.</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number" data-target="2.1">0</div>
+        <div class="stat-suffix">M+</div>
+        <div class="stat-divider"></div>
+        <div class="stat-label">Views generated</div>
+        <div class="stat-desc">Our content engages millions globally.</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number" data-target="98">0</div>
+        <div class="stat-suffix">%</div>
+        <div class="stat-divider"></div>
+        <div class="stat-label">Client satisfaction</div>
+        <div class="stat-desc">We build long-term partnerships through proven results.</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number" data-target="3">0</div>
+        <div class="stat-suffix">+</div>
+        <div class="stat-divider"></div>
+        <div class="stat-label">Years of expertise</div>
+        <div class="stat-desc">Dedicated experience in delivering impactful digital solutions.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════
+       WORK / PROJECTS SECTION — Dark webstacked grid
+  ════════════════════════════════ -->
+  <section class="work-section" id="work">
+    <div class="work-header">
+      <div class="work-label"><span class="lime-dot">●</span> {01} — Selected Work</div>
+      <h2 class="work-title">Our recent projects</h2>
+    </div>
+    <div class="work-grid">
+
+      <!-- Project 1 -->
+      <div class="project-card">
+        <div class="project-meta">
+          <span class="project-tag">{ Social Media Campaign }</span>
+          <span class="project-date">3/24</span>
+        </div>
+        <h3 class="project-name">NovaSkin Cosmetics</h3>
+        <p class="project-service">Social Media &amp; Brand Identity</p>
+        <div class="project-thumb">
+          <img src="bottle_showcase.jpg" alt="NovaSkin project" />
+        </div>
+      </div>
+
+      <!-- Project 2 -->
+      <div class="project-card">
+        <div class="project-meta">
+          <span class="project-tag">{ Video Production }</span>
+          <span class="project-date">6/24</span>
+        </div>
+        <h3 class="project-name">Veritas Tech Solutions</h3>
+        <p class="project-service">Brand Film &amp; Paid Ads</p>
+        <div class="project-thumb">
+          <img src="team_bg.jpg" alt="Veritas project" />
+        </div>
+      </div>
+
+      <!-- Project 3 -->
+      <div class="project-card">
+        <div class="project-meta">
+          <span class="project-tag">{ Reels &amp; Short-form }</span>
+          <span class="project-date">8/24</span>
+        </div>
+        <h3 class="project-name">Luminary Lifestyle Brand</h3>
+        <p class="project-service">Content Strategy &amp; Reels</p>
+        <div class="project-thumb dark-thumb">
+          <div class="thumb-placeholder">
+            <span class="thumb-icon">🎬</span>
+            <span>Luminary × Drishya</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Project 4 -->
+      <div class="project-card">
+        <div class="project-meta">
+          <span class="project-tag">{ Performance Ads }</span>
+          <span class="project-date">10/24</span>
+        </div>
+        <h3 class="project-name">Apex Fitness Studio</h3>
+        <p class="project-service">Meta Ads &amp; Lead Generation</p>
+        <div class="project-thumb dark-thumb">
+          <div class="thumb-placeholder">
+            <span class="thumb-icon">📈</span>
+            <span>Apex × Drishya</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════
+       FROM ORDINARY TO EXTRAORDINARY
+  ════════════════════════════════ -->
+  <section class="extraordinary-section" id="extraordinary">
+    <div class="extraordinary-inner">
+      <!-- Kinetic Split Headline (Scroll Velocity Animated) -->
+      <h2 class="extra-headline" id="extraHeadline">
+        <span class="extra-line extra-line-top" id="extraLineTop">From <span class="extra-word-ordinary">ordinary</span></span>
+        <span class="extra-line extra-line-bottom" id="extraLineBottom">to <span class="extra-word-extraordinary">extraordinary</span></span>
+      </h2>
+
+      <!-- 3D Interactive Stage with Aperture Halo & Bottle Showcase -->
+      <div class="extra-stage" id="extraStage">
+        <!-- Glowing Camera Aperture Shutter Halo (Brand signature) -->
+        <div class="aperture-halo" id="apertureHalo">
+          <div class="halo-ring halo-ring-1"></div>
+          <div class="halo-ring halo-ring-2"></div>
+          <div class="halo-ring halo-ring-3"></div>
+          <div class="halo-blades"></div>
+          <div class="halo-glow-orb"></div>
+        </div>
+
+        <div class="extra-image-wrap" id="extraBottle">
+          <div class="bottle-sheen" id="bottleSheen"></div>
+          <img src="bottle_showcase.jpg" alt="Extraordinary brand work" class="extra-image" />
+          <div class="bottle-pill-tag">✦ STUDIO-GRADE IMPACT</div>
+        </div>
+      </div>
+
+      <p class="extra-tagline">Visual storytelling and brand identity built to command attention and scale with your business.</p>
+
+      <div class="extra-brand">
+        <img src="logo-mark.png" alt="Drishya Media Logo Mark" class="extra-logo-icon" />
+        <span>DRISHYA<sup>®</sup></span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════
+       SERVICES SECTION — Webstacked Tools style
+  ════════════════════════════════ -->
+  <section class="services-section" id="services">
+    <div class="services-inner">
+
+      <!-- Left: big heading -->
+      <div class="services-left">
+        <div class="section-label"><span class="lime-dot">●</span> {02} — Services</div>
+        <h2 class="services-heading">Our production<br>arsenal</h2>
+      </div>
+
+      <!-- Right: skill / tool cards -->
+      <div class="services-right">
+
+        <!-- 1. Adobe Premiere Pro -->
+        <div class="tool-card">
+          <div class="tool-header">
+            <span class="tool-icon adobe-pr-badge">Pr</span>
+            <div>
+              <div class="tool-name">Adobe Premiere Pro</div>
+              <div class="tool-desc">Timeline editing, multi-track audio &amp; cinematic storytelling</div>
+            </div>
+          </div>
+          <div class="tool-bar-wrap">
+            <div class="tool-bar" data-pct="95"><div class="tool-fill"></div></div>
+            <span class="tool-pct">95%</span>
+          </div>
+        </div>
+
+        <!-- 2. CapCut -->
+        <div class="tool-card">
+          <div class="tool-header">
+            <span class="tool-icon capcut-badge">
+              <svg viewBox="0 0 24 24" width="22" height="22" fill="white"><path d="M4 6.5l8 5.5-8 5.5V6.5zm8 0l8 5.5-8 5.5V6.5z"/></svg>
+            </span>
+            <div>
+              <div class="tool-name">CapCut</div>
+              <div class="tool-desc">Fast-paced short-form reels, sound sync &amp; dynamic motion captions</div>
+            </div>
+          </div>
+          <div class="tool-bar-wrap">
+            <div class="tool-bar" data-pct="98"><div class="tool-fill"></div></div>
+            <span class="tool-pct">98%</span>
+          </div>
+        </div>
+
+        <!-- 3. Canva -->
+        <div class="tool-card">
+          <div class="tool-header">
+            <span class="tool-icon canva-badge">
+              <svg viewBox="0 0 24 24" width="24" height="24" fill="white"><circle cx="12" cy="12" r="10" fill="#00C4CC"/><text x="12" y="16" font-size="12" font-family="'Playfair Display', serif" font-weight="bold" fill="white" text-anchor="middle">C</text></svg>
+            </span>
+            <div>
+              <div class="tool-name">Canva</div>
+              <div class="tool-desc">Rapid visual asset testing, stories &amp; high-engagement marketing graphics</div>
+            </div>
+          </div>
+          <div class="tool-bar-wrap">
+            <div class="tool-bar" data-pct="92"><div class="tool-fill"></div></div>
+            <span class="tool-pct">92%</span>
+          </div>
+        </div>
+
+        <!-- 4. Figma -->
+        <div class="tool-card">
+          <div class="tool-header">
+            <span class="tool-icon" style="font-size:1.6rem;">
+              <!-- Figma SVG -->
+              <svg width="24" height="34" viewBox="0 0 38 57" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M10 57c5.523 0 10-4.477 10-10V37H10a10 10 0 0 0 0 20z" fill="#0ACF83"/>
+                <path d="M0 28.5A10 10 0 0 1 10 18.5h10v20H10A10 10 0 0 1 0 28.5z" fill="#A259FF"/>
+                <path d="M0 9.5A10 10 0 0 1 10-.5h10v20H10A10 10 0 0 1 0 9.5z" fill="#F24E1E"/>
+                <path d="M20-.5h10a10 10 0 0 1 0 20H20V-.5z" fill="#FF7262"/>
+                <path d="M40 28.5a10 10 0 1 1-20 0 10 10 0 0 1 20 0z" fill="#1ABCFE"/>
+              </svg>
+            </span>
+            <div>
+              <div class="tool-name">Figma</div>
+              <div class="tool-desc">Pixel-perfect carousel layouts, typography &amp; brand guidelines</div>
+            </div>
+          </div>
+          <div class="tool-bar-wrap">
+            <div class="tool-bar" data-pct="90"><div class="tool-fill"></div></div>
+            <span class="tool-pct">90%</span>
+          </div>
+        </div>
+
+        <!-- 5. Adobe Lightroom -->
+        <div class="tool-card">
+          <div class="tool-header">
+            <span class="tool-icon adobe-lr-badge">Lr</span>
+            <div>
+              <div class="tool-name">Adobe Lightroom</div>
+              <div class="tool-desc">Color grading, RAW photo processing &amp; moody visual finishing</div>
+            </div>
+          </div>
+          <div class="tool-bar-wrap">
+            <div class="tool-bar" data-pct="94"><div class="tool-fill"></div></div>
+            <span class="tool-pct">94%</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════
+       FLEXIBLE PRICING SECTION — Packages & Deliverables in INR
+  ════════════════════════════════ -->
+  <section class="pricing-section" id="pricing">
+    <div class="pricing-inner">
+      <h2 class="pricing-title">Flexible pricing</h2>
+      <p class="pricing-sub">Transparent packages tailored for exponential brand reach and engagement.<br>Choose the plan that best fits your visual growth trajectory.</p>
+
+      <!-- Toggle -->
+      <div class="pricing-toggle-row">
+        <span class="toggle-label" id="label-monthly">Monthly</span>
+        <div class="toggle-switch" id="toggleSwitch" role="switch" aria-checked="false">
+          <div class="toggle-thumb"></div>
+        </div>
+        <span class="toggle-label" id="label-annual">Quarterly / Annual <span class="save-badge">Save 20%</span></span>
+      </div>
+
+      <!-- Pricing Cards Grid -->
+      <div class="pricing-grid">
+
+        <!-- Package 1 -->
+        <div class="pricing-card">
+          <div class="plan-badge-row">
+            <span class="plan-name">Package 1</span>
+            <span class="plan-sub-tag">Starter Growth</span>
+          </div>
+          <div class="plan-price">
+            <span class="price-orig" id="orig-p1" style="display:none;">₹15,000</span>
+            <span class="price-currency">₹</span>
+            <span class="price-amount" data-monthly="15000" data-annual="12000">15,000</span>
+            <span class="price-period">/month</span>
+          </div>
+          <p class="plan-desc">Essential content engine for emerging brands building steady organic momentum.</p>
+
+          <ul class="plan-features">
+            <li><span class="feat-check">✓</span> <strong>7 Reels</strong> <span class="feat-sub">(Scripted &amp; edited)</span></li>
+            <li><span class="feat-check">✓</span> <strong>3 Static Posts</strong> <span class="feat-sub">(Engagement drivers)</span></li>
+            <li><span class="feat-check">✓</span> <strong>1 Carousel</strong> <span class="feat-sub">(5 Curated slides)</span></li>
+            <li><span class="feat-check">✓</span> <strong>4 Stories</strong> <span class="feat-sub">(Hype &amp; announcements)</span></li>
+          </ul>
+
+          <a href="#contact" class="plan-btn plan-btn-outline"><span class="plan-arrow">↳</span> Choose Package 1</a>
+        </div>
+
+        <!-- Package 2 (Featured / Most Popular) -->
+        <div class="pricing-card featured">
+          <div class="plan-badge-row">
+            <span class="plan-name">Package 2</span>
+            <span class="most-popular">🔥 Most popular</span>
+          </div>
+          <div class="plan-price">
+            <span class="price-orig" id="orig-pro" style="display:none;">₹20,000</span>
+            <span class="price-currency">₹</span>
+            <span class="price-amount" data-monthly="20000" data-annual="16000">20,000</span>
+            <span class="price-period">/month</span>
+          </div>
+          <p class="plan-desc">Our flagship growth plan for fast-scaling brands needing consistent algorithmic push.</p>
+
+          <ul class="plan-features">
+            <li><span class="feat-check">✓</span> <strong>9 Reels</strong> <span class="feat-sub">(High-retention storytelling)</span></li>
+            <li><span class="feat-check">✓</span> <strong>4 Static Posts</strong> <span class="feat-sub">(Community engagement)</span></li>
+            <li><span class="feat-check">✓</span> <strong>2 Carousels</strong> <span class="feat-sub">(10 Value-packed slides)</span></li>
+            <li><span class="feat-check">✓</span> <strong>5 Stories</strong> <span class="feat-sub">(Interactive showcases)</span></li>
+          </ul>
+
+          <a href="#contact" class="plan-btn plan-btn-primary"><span class="plan-arrow">↳</span> Choose Package 2</a>
+        </div>
+
+        <!-- Package 3 -->
+        <div class="pricing-card">
+          <div class="plan-badge-row">
+            <span class="plan-name">Package 3</span>
+            <span class="premium-badge">💎 Max Impact</span>
+          </div>
+          <div class="plan-price">
+            <span class="price-orig" id="orig-p3" style="display:none;">₹25,000</span>
+            <span class="price-currency">₹</span>
+            <span class="price-amount" data-monthly="25000" data-annual="20000">25,000</span>
+            <span class="price-period">/month</span>
+          </div>
+          <p class="plan-desc">Maximum production volume for established brands dominating their industry niche.</p>
+
+          <ul class="plan-features">
+            <li><span class="feat-check">✓</span> <strong>12 Reels</strong> <span class="feat-sub">(Full cinematic production)</span></li>
+            <li><span class="feat-check">✓</span> <strong>4 Static Posts</strong> <span class="feat-sub">(High-converting creatives)</span></li>
+            <li><span class="feat-check">✓</span> <strong>3 Carousels</strong> <span class="feat-sub">(15 Educational slides)</span></li>
+            <li><span class="feat-check">✓</span> <strong>6 Stories</strong> <span class="feat-sub">(Daily presence &amp; polls)</span></li>
+          </ul>
+
+          <a href="#contact" class="plan-btn plan-btn-outline"><span class="plan-arrow">↳</span> Choose Package 3</a>
+        </div>
+
+      </div>
+
+      <!-- A La Carte Add-ons Section -->
+      <div class="addons-section">
+        <div class="addons-header">
+          <span class="addons-tag">⚡ A La Carte Deliverables</span>
+          <h3 class="addons-title">Need extra content? Customise your plan</h3>
+          <p class="addons-subtitle">Any extra additions you'd like to add we can charge separately and add it to your desired plans.</p>
+        </div>
+
+        <div class="addons-grid">
+          <!-- 1 Reel -->
+          <div class="addon-card">
+            <div class="addon-top">
+              <span class="addon-icon">🎬</span>
+              <div class="addon-price">₹2,000<span class="addon-unit"> / reel</span></div>
+            </div>
+            <h4 class="addon-name">1 Reel</h4>
+            <p class="addon-desc">Dedicatedly scripted, shot &amp; edited according to your needs.</p>
+          </div>
+
+          <!-- 1 Static Post -->
+          <div class="addon-card">
+            <div class="addon-top">
+              <span class="addon-icon">🖼️</span>
+              <div class="addon-price">₹400<span class="addon-unit"> / post</span></div>
+            </div>
+            <h4 class="addon-name">1 Static Post</h4>
+            <p class="addon-desc">A static interactive post which boosts engagement and interaction between the followers and the brand.</p>
+          </div>
+
+          <!-- 1 Carousel -->
+          <div class="addon-card">
+            <div class="addon-top">
+              <span class="addon-icon">📑</span>
+              <div class="addon-price">₹1,200<span class="addon-unit"> / carousel</span></div>
+            </div>
+            <h4 class="addon-name">1 Carousel</h4>
+            <p class="addon-desc">5 designed slides curated to your needs and design to boost brand awareness.</p>
+          </div>
+
+          <!-- 1 Story -->
+          <div class="addon-card">
+            <div class="addon-top">
+              <span class="addon-icon">⚡</span>
+              <div class="addon-price">₹300<span class="addon-unit"> / story</span></div>
+            </div>
+            <h4 class="addon-name">1 Story</h4>
+            <p class="addon-desc">A designed Instagram story for showcasing and creating hype around your product / brand for followers.</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════
+       ABOUT / TEAM SECTION
+  ════════════════════════════════ -->
+  <section class="about-section" id="about">
+    <div class="about-inner">
+      <div class="about-left">
+        <div class="section-label"><span class="lime-dot">●</span> {03} — About Us</div>
+        <h2 class="about-heading">We are Drishya<br>Media.</h2>
+        <p class="about-para">Born from a passion for visual storytelling, Drishya Media is a full-service creative agency based in India. We help brands break through the noise with high-impact social media content, cinematic video production, and data-driven paid advertising.</p>
+        <p class="about-para">Our team combines creative vision with analytical precision — because great content without strategy is just noise.</p>
+        <div class="about-tags">
+          <span class="about-tag">🎬 Video Production</span>
+          <span class="about-tag">📱 Social Media</span>
+          <span class="about-tag">📊 Paid Ads</span>
+          <span class="about-tag">🎨 Brand Identity</span>
+        </div>
+      </div>
+      <div class="about-right">
+        <div class="team-card">
+          <img src="avatar.jpg" alt="Shreyash — Founder" class="team-photo" />
+          <div class="team-info">
+            <div class="team-name">Shreyash</div>
+            <div class="team-role">Founder &amp; Creative Director</div>
+            <div class="team-socials">
+              <a href="#" class="tsocial"><i class="fa-brands fa-instagram"></i></a>
+              <a href="#" class="tsocial"><i class="fa-brands fa-youtube"></i></a>
+              <a href="#" class="tsocial"><i class="fa-brands fa-linkedin"></i></a>
+            </div>
+          </div>
+        </div>
+        <div class="team-card">
+          <div class="team-avatar-placeholder">
+            <i class="fa-solid fa-user"></i>
+          </div>
+          <div class="team-info">
+            <div class="team-name">Creative Team</div>
+            <div class="team-role">Editors, Designers &amp; Strategists</div>
+            <div class="team-socials">
+              <a href="#" class="tsocial"><i class="fa-brands fa-instagram"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════
+       CONTACT / FOOTER — Dark webstacked style
+  ════════════════════════════════ -->
+  <section class="contact-section" id="contact">
+    <div class="contact-inner">
+
+      <!-- Left: big headline + info -->
+      <div class="contact-left">
+        <h2 class="contact-headline">
+          Let's scale your brand<br>to <span class="contact-lime">extraordinary.</span>
+        </h2>
+        <p class="contact-sub">Let's make an impact</p>
+
+        <div class="contact-profile-card">
+          <img src="logo-mark.png" alt="Drishya Media Logo" class="contact-avatar" />
+          <div>
+            <div class="contact-name">Drishya Media</div>
+            <div class="contact-role">Visual Growth Studio</div>
+            <div class="contact-socials">
+              <a href="#" class="csocial" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+              <a href="#" class="csocial" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+              <a href="#" class="csocial" aria-label="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
+            </div>
+          </div>
+        </div>
+
+        <div class="contact-direct-info">
+          <div class="contact-email-label">Direct email</div>
+          <a href="mailto:agency@drishyamedia.com" class="contact-email-link">agency@drishyamedia.com</a>
+          <p class="contact-blurb">
+            Hit us up if you're looking for a <strong>fast, results-driven</strong>
+            creative partner who can turn views into recurring clients.
+          </p>
+          <div class="contact-meta-pills">
+            <span class="meta-pill">⚡ 24h Response Time</span>
+            <span class="meta-pill">📍 India & Global</span>
+            <span class="meta-pill">🟢 Accepting New Clients</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right: Interactive Booking & Enquiry Form -->
+      <div class="contact-right">
+        <div class="booking-form-card">
+          <div class="booking-card-header">
+            <div class="booking-pill-tag">Discovery Call &amp; Enquiry</div>
+            <h3 class="booking-card-title">Start your project</h3>
+            <p class="booking-card-subtitle">Fill in the details below and we'll reach out with a custom growth plan.</p>
+          </div>
+
+          <form id="enquiryForm" class="enquiry-form" novalidate>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="clientName">Your Name <span class="req">*</span></label>
+                <input type="text" id="clientName" name="name" placeholder="e.g. Alex Morgan" required />
+              </div>
+              <div class="form-group">
+                <label for="clientEmail">Email Address <span class="req">*</span></label>
+                <input type="email" id="clientEmail" name="email" placeholder="alex@brand.com" required />
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="clientPhone">WhatsApp / Phone</label>
+                <input type="tel" id="clientPhone" name="phone" placeholder="+91 98765 43210" />
+              </div>
+              <div class="form-group">
+                <label for="brandName">Brand or Company</label>
+                <input type="text" id="brandName" name="brand_name" placeholder="e.g. Luminary Co." />
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label>Service Needed</label>
+              <div class="service-pills" id="servicePills">
+                <button type="button" class="service-pill-btn active" data-value="Full Visual Growth">Full Package</button>
+                <button type="button" class="service-pill-btn" data-value="Video Production & Reels">Video &amp; Reels</button>
+                <button type="button" class="service-pill-btn" data-value="Social Media Management">Social Media</button>
+                <button type="button" class="service-pill-btn" data-value="Meta Ads & Acquisition">Paid Ads</button>
+                <button type="button" class="service-pill-btn" data-value="Brand Identity & Design">Branding</button>
+              </div>
+              <input type="hidden" id="selectedService" name="service" value="Full Visual Growth" />
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="clientBudget">Desired Package / Budget</label>
+                <select id="clientBudget" name="budget" class="form-select">
+                  <option value="Package 1 (₹15,000/mo)">Package 1 — ₹15,000/mo (7 Reels, 3 Posts, 1 Carousel, 4 Stories)</option>
+                  <option value="Package 2 (₹20,000/mo)" selected>Package 2 — ₹20,000/mo (Most Popular: 9 Reels, 4 Posts, 2 Carousels, 5 Stories)</option>
+                  <option value="Package 3 (₹25,000/mo)">Package 3 — ₹25,000/mo (12 Reels, 4 Posts, 3 Carousels, 6 Stories)</option>
+                  <option value="Custom Plan + Add-ons">Custom Plan + Add-ons (Reels ₹2k, Posts ₹400, Carousels ₹1.2k, Stories ₹300)</option>
+                  <option value="Flexible / Discussion">Flexible / Let's discuss</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="preferredDate">Target Start Date</label>
+                <input type="date" id="preferredDate" name="preferred_date" />
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="clientMessage">Project Details / Vision</label>
+              <textarea id="clientMessage" name="message" rows="3" placeholder="Tell us about your current challenges, target audience, or goals..."></textarea>
+            </div>
+
+            <!-- Status message container -->
+            <div id="formStatus" class="form-status" style="display: none;"></div>
+
+            <button type="submit" id="submitBtn" class="btn-submit-booking">
+              <span class="btn-text">Submit Enquiry / Book Call ↗</span>
+              <span class="btn-loader" style="display: none;"><i class="fa-solid fa-circle-notch fa-spin"></i> Submitting...</span>
+            </button>
+          </form>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Footer bar -->
+    <div class="footer-bar">
+      <div class="footer-logo">
+        <img src="logo-mark.png" alt="Drishya Media Logo" class="footer-logo-img" />
+        <span>Drishya Media</span>
+      </div>
+      <div class="footer-copy">Copyright © Drishya Media, 2026. All rights reserved.</div>
+      <div class="footer-links">
+        <a href="/admin" class="footer-admin-tag"><i class="fa-solid fa-lock"></i> CRM / Leads Portal</a>
+      </div>
+    </div>
+  </section>
+
+  <script src="script.js"></script>
+</body>
+</html>
