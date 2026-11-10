@@ -1,0 +1,14 @@
+services:
+  - type: web
+    name: drishya-media
+    runtime: node
+    plan: free
+    buildCommand: npm install
+    startCommand: npm start
+    envVars:
+      - key: PORT
+        value: 10000
+      - key: ADMIN_EMAIL
+        value: agency@drishyamedia.com
+      - key: ADMIN_PASSWORD
+        value: drishya2026
