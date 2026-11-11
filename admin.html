@@ -1026,7 +1026,10 @@
           <span class="modal-label">Internal Follow-Up Notes</span>
           <textarea id="modalNotes" class="notes-textarea" placeholder="Add notes (e.g., Called on 11th Nov, sent proposal, requested 20k package)..."></textarea>
         </div>
-        <div style="display: flex; justify-content: flex-end; gap: 10px; margin-top: 10px;">
+        <div style="display: flex; justify-content: flex-end; align-items: center; gap: 10px; margin-top: 10px; flex-wrap: wrap;">
+          <a id="modalWhatsAppBtn" href="#" target="_blank" rel="noopener noreferrer" class="btn-action" style="display: none; background: rgba(37, 211, 102, 0.14); border-color: rgba(37, 211, 102, 0.35); color: #25D366;">
+            <i class="fa-brands fa-whatsapp"></i> Chat on WhatsApp
+          </a>
           <button id="modalSaveNotesBtn" class="btn-action btn-export">Save Notes</button>
         </div>
       </div>
@@ -1339,6 +1342,17 @@
       `;
       document.getElementById('modalMessage').textContent = lead.message || 'No project description was provided.';
       document.getElementById('modalNotes').value = lead.notes || '';
+
+      const waBtn = document.getElementById('modalWhatsAppBtn');
+      const digits = (lead.phone || '').replace(/\D/g, '');
+      if (digits.length >= 10) {
+        const fullPhone = digits.length === 10 ? `91${digits}` : digits;
+        const greeting = `Hi ${lead.name}, thank you for contacting Drishya Media regarding ${lead.service} (${lead.budget}). When would be a good time for a quick call?`;
+        waBtn.href = `https://wa.me/${fullPhone}?text=${encodeURIComponent(greeting)}`;
+        waBtn.style.display = 'inline-flex';
+      } else {
+        waBtn.style.display = 'none';
+      }
 
       document.getElementById('detailModal').classList.add('active');
     }

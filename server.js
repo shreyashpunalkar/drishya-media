@@ -40,6 +40,11 @@ const PORT = process.env.PORT || 8001;
 const ADMIN_EMAIL = (process.env.ADMIN_EMAIL || 'drishyamedia693@gmail.com').toLowerCase().trim();
 const ADMIN_PASSWORD = process.env.ADMIN_PASSWORD || 'ASC123@dmedia';
 
+// 1b. Automatic WhatsApp Lead Forwarding Configuration (2nd contact number by default)
+const WHATSAPP_NOTIFY_PHONE = (process.env.WHATSAPP_NOTIFY_PHONE || '+919284085058').trim();
+const CALLMEBOT_API_KEY = (process.env.CALLMEBOT_API_KEY || '').trim();
+const LEAD_WEBHOOK_URL = (process.env.LEAD_WEBHOOK_URL || '').trim();
+
 // 2. Initialize SQLite Database
 const dbPath = path.join(__dirname, 'bookings.db');
 const db = new DatabaseSync(dbPath);
@@ -312,6 +317,58 @@ app.get('/api/auth/me', (req, res) => {
 // 5. PUBLIC Enquiries Route (Client submissions from portfolio)
 
 /**
+ * Forwards new enquiry details to configured WhatsApp (CallMeBot) and/or Webhook URL.
+ * Runs non-blocking so client form submissions never stall if external services are slow.
+ */
+async function forwardLeadToWhatsApp(lead) {
+  const lines = [
+    `*New Drishya Media Lead (#${lead.id})*`,
+    `Name: ${lead.name}`,
+    `Email: ${lead.email}`,
+    lead.phone ? `Phone: ${lead.phone}` : null,
+    lead.brand_name ? `Brand: ${lead.brand_name}` : null,
+    `Service: ${lead.service}`,
+    `Package: ${lead.budget}`,
+    lead.preferred_date ? `Start Date: ${lead.preferred_date}` : null,
+    lead.message ? `Message: ${lead.message}` : null,
+  ].filter(Boolean);
+
+  const text = lines.join('\n');
+
+  if (CALLMEBOT_API_KEY && WHATSAPP_NOTIFY_PHONE) {
+    try {
+      const url = `https://api.callmebot.com/whatsapp.php?phone=${encodeURIComponent(WHATSAPP_NOTIFY_PHONE)}&text=${encodeURIComponent(text)}&apikey=${encodeURIComponent(CALLMEBOT_API_KEY)}`;
+      const resp = await fetch(url, { signal: AbortSignal.timeout(8000) });
+      if (resp.ok) {
+        console.log(`📲 [WhatsApp] Forwarded lead #${lead.id} to ${WHATSAPP_NOTIFY_PHONE}`);
+      } else {
+        console.warn(`⚠️ [WhatsApp] CallMeBot returned HTTP ${resp.status} for lead #${lead.id}`);
+      }
+    } catch (err) {
+      console.warn(`⚠️ [WhatsApp] CallMeBot forwarding failed for lead #${lead.id}:`, err.message);
+    }
+  } else {
+    console.log(`ℹ️ [WhatsApp] Lead #${lead.id} saved. Set CALLMEBOT_API_KEY in Render env vars to forward to ${WHATSAPP_NOTIFY_PHONE}.`);
+  }
+
+  if (LEAD_WEBHOOK_URL) {
+    try {
+      const resp = await fetch(LEAD_WEBHOOK_URL, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ ...lead, notify_phone: WHATSAPP_NOTIFY_PHONE, text }),
+        signal: AbortSignal.timeout(8000),
+      });
+      if (!resp.ok) {
+        console.warn(`⚠️ [Webhook] Returned HTTP ${resp.status} for lead #${lead.id}`);
+      }
+    } catch (err) {
+      console.warn(`⚠️ [Webhook] Forwarding failed for lead #${lead.id}:`, err.message);
+    }
+  }
+}
+
+/**
  * POST /api/enquiries
  * Public booking & enquiry intake
  */
@@ -326,27 +383,42 @@ app.post('/api/enquiries', (req, res) => {
       return res.status(400).json({ error: 'Valid email address is required' });
     }
 
+    const cleanLead = {
+      name: name.trim(),
+      email: email.trim(),
+      phone: (phone || '').trim(),
+      brand_name: (brand_name || '').trim(),
+      service: (service || 'General Inquiry').trim(),
+      budget: (budget || 'Flexible').trim(),
+      preferred_date: (preferred_date || '').trim(),
+      message: (message || '').trim(),
+    };
+
     const stmt = db.prepare(`
       INSERT INTO enquiries (name, email, phone, brand_name, service, budget, preferred_date, message)
       VALUES (?, ?, ?, ?, ?, ?, ?, ?)
     `);
 
     const result = stmt.run(
-      name.trim(),
-      email.trim(),
-      (phone || '').trim(),
-      (brand_name || '').trim(),
-      (service || 'General Inquiry').trim(),
-      (budget || 'Flexible').trim(),
-      (preferred_date || '').trim(),
-      (message || '').trim()
+      cleanLead.name,
+      cleanLead.email,
+      cleanLead.phone,
+      cleanLead.brand_name,
+      cleanLead.service,
+      cleanLead.budget,
+      cleanLead.preferred_date,
+      cleanLead.message
     );
 
-    console.log(`🎉 New enquiry received [#${result.lastInsertRowid}] from ${name} (${email}) for ${service}`);
+    const leadId = Number(result.lastInsertRowid);
+    console.log(`🎉 New enquiry received [#${leadId}] from ${cleanLead.name} (${cleanLead.email}) for ${cleanLead.service}`);
+
+    // Forward lead asynchronously to WhatsApp / Webhook
+    forwardLeadToWhatsApp({ id: leadId, ...cleanLead }).catch(() => {});
 
     return res.status(201).json({
       success: true,
-      id: Number(result.lastInsertRowid),
+      id: leadId,
       message: "Thank you! We've received your enquiry and will respond within 24 hours.",
     });
   } catch (err) {
