@@ -246,81 +246,154 @@
   <section class="work-section" id="work">
     <div class="work-header">
       <div class="work-label"><span class="lime-dot">●</span> {01} — Selected Work</div>
-      <h2 class="work-title">Our recent projects</h2>
+      <div class="work-header-row">
+        <h2 class="work-title">Our recent projects</h2>
+        <p class="work-subtitle">Hover or tap any 9:16 reel to preview — click to watch full screen with sound.</p>
+      </div>
     </div>
     <div class="work-grid">
 
       <!-- Brand 1: Wrench -->
-      <div class="project-card">
+      <div class="project-card" data-work-index="0" data-work-type="video" data-work-src="videos/wrench.mp4" data-work-poster="wrench_poster.jpg">
         <div class="project-meta">
-          <span class="project-tag">{ Moto Gear · Product Visuals }</span>
+          <span class="project-tag">{ Moto Gear }</span>
           <span class="project-date">2024</span>
         </div>
         <h3 class="project-name">Wrench</h3>
-        <p class="project-service">Product Photography &amp; Social Media Content</p>
+        <p class="project-service">Product Visuals &amp; Social Reels</p>
         <div class="project-thumb video-thumb">
-          <video class="project-video" src="videos/wrench.mp4" muted loop playsinline preload="none"></video>
-          <div class="video-play-hint"><span>▶ Play</span></div>
-        </div>
-      </div>
-
-      <!-- Brand 2: MotoXcellence -->
-      <div class="project-card">
-        <div class="project-meta">
-          <span class="project-tag">{ Moto Content · Reels }</span>
-          <span class="project-date">2024</span>
-        </div>
-        <h3 class="project-name">MotoXcellence</h3>
-        <p class="project-service">Reels Production &amp; Brand Storytelling</p>
-        <div class="project-thumb video-thumb motox-thumb">
-          <div class="motox-collage">
-            <img src="motox_main.jpg" alt="MotoXcellence ride" class="motox-img motox-img-main" />
-            <img src="motox_detail.jpg" alt="MotoXcellence detail" class="motox-img motox-img-detail" />
-            <img src="motox_action1.jpg" alt="MotoXcellence action" class="motox-img motox-img-action1" />
-            <img src="motox_action2.jpg" alt="MotoXcellence action 2" class="motox-img motox-img-action2" />
+          <video class="project-video" src="videos/wrench.mp4" muted loop playsinline preload="metadata" poster="wrench_poster.jpg"></video>
+          <div class="video-play-hint">
+            <span class="play-circle"><i class="fa-solid fa-play"></i></span>
+            <span class="play-label">Watch Reel</span>
+          </div>
+          <div class="reel-controls">
+            <button type="button" class="reel-ctrl-btn reel-toggle-play" aria-label="Play or pause">
+              <i class="fa-solid fa-play"></i>
+            </button>
+            <div class="reel-ctrl-right">
+              <button type="button" class="reel-ctrl-btn reel-toggle-mute" aria-label="Mute or unmute">
+                <i class="fa-solid fa-volume-xmark"></i>
+              </button>
+              <button type="button" class="reel-ctrl-btn reel-open-modal" aria-label="Open full view">
+                <i class="fa-solid fa-expand"></i>
+              </button>
+            </div>
           </div>
         </div>
       </div>
 
-      <!-- Brand 3: Rynox — real product shots + video -->
-      <div class="project-card rynox-card">
+      <!-- Brand 2: MotoXcellence -->
+      <div class="project-card" data-work-index="1" data-work-type="gallery" data-work-images="motox_main.jpg,motox_detail.jpg,motox_action1.jpg,motox_action2.jpg">
         <div class="project-meta">
-          <span class="project-tag">{ Moto Gear · Product Review }</span>
+          <span class="project-tag">{ Moto Gear }</span>
+          <span class="project-date">2024</span>
+        </div>
+        <h3 class="project-name">MotoXcellence</h3>
+        <p class="project-service">Product Highlights &amp; Visuals</p>
+        <div class="project-thumb motox-thumb">
+          <div class="motox-collage">
+            <img src="motox_main.jpg" alt="MotoXcellence main view" class="motox-img motox-img-main" />
+            <div class="motox-strip">
+              <img src="motox_detail.jpg" alt="MotoXcellence finger guards detail" class="motox-img" />
+              <img src="motox_action1.jpg" alt="MotoXcellence palm sliders detail" class="motox-img" />
+              <img src="motox_action2.jpg" alt="MotoXcellence knuckle guards detail" class="motox-img" />
+            </div>
+          </div>
+          <div class="video-play-hint gallery-hint">
+            <span class="play-circle"><i class="fa-solid fa-images"></i></span>
+            <span class="play-label">4 Photos</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Brand 3: Rynox -->
+      <div class="project-card rynox-card" data-work-index="2" data-work-type="video" data-work-src="videos/rynox.mov" data-work-poster="rynox_poster.jpg">
+        <div class="project-meta">
+          <span class="project-tag">{ Moto Review }</span>
           <span class="project-date">2024</span>
         </div>
         <h3 class="project-name">Rynox</h3>
-        <p class="project-service">Product Review Shoots &amp; Feature Videos</p>
+        <p class="project-service">Review Shoots &amp; Feature Reels</p>
         <div class="project-thumb video-thumb">
-          <video class="project-video" src="videos/rynox.mov" muted loop playsinline preload="none" poster="rynox_still_4.jpg"></video>
-          <div class="video-play-hint"><span>▶ Play</span></div>
+          <video class="project-video" src="videos/rynox.mov" muted loop playsinline preload="metadata" poster="rynox_poster.jpg"></video>
+          <div class="video-play-hint">
+            <span class="play-circle"><i class="fa-solid fa-play"></i></span>
+            <span class="play-label">Watch Reel</span>
+          </div>
+          <div class="reel-controls">
+            <button type="button" class="reel-ctrl-btn reel-toggle-play" aria-label="Play or pause">
+              <i class="fa-solid fa-play"></i>
+            </button>
+            <div class="reel-ctrl-right">
+              <button type="button" class="reel-ctrl-btn reel-toggle-mute" aria-label="Mute or unmute">
+                <i class="fa-solid fa-volume-xmark"></i>
+              </button>
+              <button type="button" class="reel-ctrl-btn reel-open-modal" aria-label="Open full view">
+                <i class="fa-solid fa-expand"></i>
+              </button>
+            </div>
+          </div>
         </div>
       </div>
 
       <!-- Brand 4: MotoCult -->
-      <div class="project-card">
+      <div class="project-card" data-work-index="3" data-work-type="video" data-work-src="videos/motocult.mp4" data-work-poster="motocult_poster.jpg">
         <div class="project-meta">
-          <span class="project-tag">{ Moto Community · Social }</span>
+          <span class="project-tag">{ Moto Club }</span>
           <span class="project-date">2024</span>
         </div>
         <h3 class="project-name">MotoCult</h3>
-        <p class="project-service">Community Content &amp; Social Media Growth</p>
+        <p class="project-service">Community Content &amp; Growth</p>
         <div class="project-thumb video-thumb">
-          <video class="project-video" src="videos/motocult.mp4" muted loop playsinline preload="none"></video>
-          <div class="video-play-hint"><span>▶ Play</span></div>
+          <video class="project-video" src="videos/motocult.mp4" muted loop playsinline preload="metadata" poster="motocult_poster.jpg"></video>
+          <div class="video-play-hint">
+            <span class="play-circle"><i class="fa-solid fa-play"></i></span>
+            <span class="play-label">Watch Reel</span>
+          </div>
+          <div class="reel-controls">
+            <button type="button" class="reel-ctrl-btn reel-toggle-play" aria-label="Play or pause">
+              <i class="fa-solid fa-play"></i>
+            </button>
+            <div class="reel-ctrl-right">
+              <button type="button" class="reel-ctrl-btn reel-toggle-mute" aria-label="Mute or unmute">
+                <i class="fa-solid fa-volume-xmark"></i>
+              </button>
+              <button type="button" class="reel-ctrl-btn reel-open-modal" aria-label="Open full view">
+                <i class="fa-solid fa-expand"></i>
+              </button>
+            </div>
+          </div>
         </div>
       </div>
 
-      <!-- Brand 5: Headshot Energy — full-width with real video -->
-      <div class="project-card headshot-card">
+      <!-- Brand 5: Headshot Energy -->
+      <div class="project-card headshot-card" data-work-index="4" data-work-type="video" data-work-src="headshot_new.mp4" data-work-poster="headshot_poster.jpg">
         <div class="project-meta">
-          <span class="project-tag">{ Energy Drink · Studio Shoot }</span>
+          <span class="project-tag">{ Energy Drink }</span>
           <span class="project-date">2024</span>
         </div>
         <h3 class="project-name">Headshot Energy</h3>
-        <p class="project-service">Studio Product Photography &amp; Brand Visuals</p>
+        <p class="project-service">Studio Shoot &amp; Brand Reel</p>
         <div class="project-thumb video-thumb">
-          <video class="project-video" src="headshot_new.mp4" muted loop playsinline preload="none" poster="headshot_product_hq.jpg"></video>
-          <div class="video-play-hint"><span>▶ Play</span></div>
+          <video class="project-video" src="headshot_new.mp4" muted loop playsinline preload="metadata" poster="headshot_poster.jpg"></video>
+          <div class="video-play-hint">
+            <span class="play-circle"><i class="fa-solid fa-play"></i></span>
+            <span class="play-label">Watch Reel</span>
+          </div>
+          <div class="reel-controls">
+            <button type="button" class="reel-ctrl-btn reel-toggle-play" aria-label="Play or pause">
+              <i class="fa-solid fa-play"></i>
+            </button>
+            <div class="reel-ctrl-right">
+              <button type="button" class="reel-ctrl-btn reel-toggle-mute" aria-label="Mute or unmute">
+                <i class="fa-solid fa-volume-xmark"></i>
+              </button>
+              <button type="button" class="reel-ctrl-btn reel-open-modal" aria-label="Open full view">
+                <i class="fa-solid fa-expand"></i>
+              </button>
+            </div>
+          </div>
         </div>
       </div>
 
@@ -777,6 +850,49 @@
       </div>
     </div>
   </section>
+
+  <!-- Vertical 9:16 Reel & Gallery Lightbox Modal -->
+  <div class="reel-lightbox" id="reelLightbox" aria-hidden="true" role="dialog" aria-label="Project Viewer">
+    <div class="reel-lightbox-backdrop" id="reelLightboxBackdrop"></div>
+    <div class="reel-lightbox-shell">
+      <div class="reel-lightbox-header">
+        <div class="reel-lightbox-info">
+          <span class="reel-lightbox-tag" id="reelLightboxTag"></span>
+          <h3 class="reel-lightbox-title" id="reelLightboxTitle"></h3>
+          <p class="reel-lightbox-service" id="reelLightboxService"></p>
+        </div>
+        <button type="button" class="reel-lightbox-close" id="reelLightboxClose" aria-label="Close viewer">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+
+      <div class="reel-lightbox-stage">
+        <button type="button" class="reel-nav-btn reel-nav-prev" id="reelLightboxPrev" aria-label="Previous project">
+          <i class="fa-solid fa-chevron-left"></i>
+        </button>
+
+        <div class="reel-lightbox-frame">
+          <video id="reelLightboxVideo" class="reel-lightbox-video" controls playsinline loop></video>
+          <div id="reelLightboxGallery" class="reel-lightbox-gallery" style="display: none;">
+            <div class="gallery-main-wrap">
+              <img id="galleryMainImg" src="" alt="Project photo" class="gallery-main-img" />
+              <button type="button" class="gallery-arrow gallery-prev" id="galleryPrevBtn" aria-label="Previous photo">
+                <i class="fa-solid fa-chevron-left"></i>
+              </button>
+              <button type="button" class="gallery-arrow gallery-next" id="galleryNextBtn" aria-label="Next photo">
+                <i class="fa-solid fa-chevron-right"></i>
+              </button>
+            </div>
+            <div class="gallery-thumbs" id="galleryThumbs"></div>
+          </div>
+        </div>
+
+        <button type="button" class="reel-nav-btn reel-nav-next" id="reelLightboxNext" aria-label="Next project">
+          <i class="fa-solid fa-chevron-right"></i>
+        </button>
+      </div>
+    </div>
+  </div>
 
   <script src="script.js"></script>
 </body>
