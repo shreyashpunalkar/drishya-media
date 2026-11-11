@@ -567,3 +567,18 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
 });
+
+/* ── PROJECT CARD VIDEO HOVER AUTOPLAY ── */
+(function () {
+  document.querySelectorAll('.project-card').forEach(function (card) {
+    var video = card.querySelector('.project-video');
+    if (!video) return;
+    card.addEventListener('mouseenter', function () {
+      video.play().catch(function () {});
+    });
+    card.addEventListener('mouseleave', function () {
+      video.pause();
+      video.currentTime = 0;
+    });
+  });
+})();
