@@ -1547,11 +1547,20 @@ a {
   text-align: left;
 }
 
-/* Right: 3-card tool grid */
+/* Right: 5-card balanced bento grid (3 on row 1, 2 on row 2) */
 .services-right {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(6, 1fr);
   gap: 24px;
+}
+
+.services-right .tool-card {
+  grid-column: span 2;
+}
+
+.services-right .tool-card:nth-child(4),
+.services-right .tool-card:nth-child(5) {
+  grid-column: span 3;
 }
 
 .tool-card {
@@ -2619,6 +2628,19 @@ a {
     gap: 36px;
   }
 
+  .services-right {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .services-right .tool-card,
+  .services-right .tool-card:nth-child(4) {
+    grid-column: span 1;
+  }
+
+  .services-right .tool-card:nth-child(5) {
+    grid-column: 1 / -1;
+  }
+
   .contact-inner {
     grid-template-columns: 1fr;
     gap: 48px;
@@ -2681,6 +2703,12 @@ a {
 
   .services-right {
     grid-template-columns: 1fr;
+  }
+
+  .services-right .tool-card,
+  .services-right .tool-card:nth-child(4),
+  .services-right .tool-card:nth-child(5) {
+    grid-column: auto;
   }
 
   .work-grid {
