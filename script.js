@@ -130,27 +130,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
   statNumbers.forEach(el => counterObserver.observe(el));
 
-  /* ── TOOL BAR PROGRESS ANIMATION ── */
-  const toolBars = document.querySelectorAll('.tool-bar');
-
-  const barObserver = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (!entry.isIntersecting) return;
-      const bar = entry.target;
-      const pct = bar.dataset.pct || 80;
-      const fill = bar.querySelector('.tool-fill');
-      if (fill) {
-        // Slight delay for stagger feel
-        setTimeout(() => {
-          fill.style.width = pct + '%';
-        }, 200);
-      }
-      barObserver.unobserve(bar);
-    });
-  }, { threshold: 0.3 });
-
-  toolBars.forEach(bar => barObserver.observe(bar));
-
   /* ── PRICING TOGGLE ── */
   const toggleSwitch = document.getElementById('toggleSwitch');
   const priceAmounts = document.querySelectorAll('.price-amount');
@@ -449,6 +428,15 @@ document.addEventListener('DOMContentLoaded', () => {
   /* ── INTERACTIVE BOOKING & ENQUIRY FORM ── */
   const servicePills = document.querySelectorAll('.service-pill-btn');
   const selectedServiceInput = document.getElementById('selectedService');
+  const budgetSelect = document.getElementById('clientBudget');
+
+  // Ensure Desired Package / Budget dropdown is never disabled for any service
+  const unlockBudgetSelect = () => {
+    if (!budgetSelect) return;
+    budgetSelect.disabled = false;
+    budgetSelect.removeAttribute('disabled');
+  };
+  unlockBudgetSelect();
 
   servicePills.forEach(pill => {
     pill.addEventListener('click', () => {
@@ -457,6 +445,7 @@ document.addEventListener('DOMContentLoaded', () => {
       if (selectedServiceInput) {
         selectedServiceInput.value = pill.dataset.value;
       }
+      unlockBudgetSelect();
     });
   });
 
@@ -465,7 +454,7 @@ document.addEventListener('DOMContentLoaded', () => {
     btn.addEventListener('click', () => {
       const card = btn.closest('.pricing-card');
       const planName = card ? card.querySelector('.plan-name')?.textContent?.trim() : '';
-      const budgetSelect = document.getElementById('clientBudget');
+      unlockBudgetSelect();
       if (budgetSelect && planName) {
         Array.from(budgetSelect.options).forEach(opt => {
           if (opt.value.toLowerCase().includes(planName.toLowerCase())) {
@@ -483,7 +472,7 @@ document.addEventListener('DOMContentLoaded', () => {
   document.querySelectorAll('.addon-card').forEach(card => {
     card.style.cursor = 'pointer';
     card.addEventListener('click', () => {
-      const budgetSelect = document.getElementById('clientBudget');
+      unlockBudgetSelect();
       if (budgetSelect) {
         budgetSelect.value = 'Custom Plan + Add-ons';
       }
@@ -551,6 +540,7 @@ document.addEventListener('DOMContentLoaded', () => {
           else p.classList.remove('active');
         });
         if (selectedServiceInput) selectedServiceInput.value = 'Full Visual Growth';
+        unlockBudgetSelect();
       } else {
         showStatus(data.error || 'Failed to submit enquiry. Please try again or email us directly.', 'error');
       }
