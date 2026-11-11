@@ -1853,8 +1853,8 @@ a {
 /* 3D Stage & Aperture Halo */
 .extra-stage {
   position: relative;
-  width: min(520px, 92%);
-  margin: -130px auto 0;
+  width: min(320px, 82vw);
+  margin: -95px auto 0;
   z-index: 10;
   perspective: 1200px;
 }
@@ -1946,10 +1946,11 @@ a {
   }
 }
 
-/* Bottle Image Card with Sheen */
+/* Bottle / Can Vertical 9:16 Showcase Card with Sheen */
 .extra-image-wrap {
   width: 100%;
-  height: 370px;
+  aspect-ratio: 9 / 16;
+  height: auto;
   position: relative;
   z-index: 5;
   border-radius: var(--radius-lg);
@@ -1970,6 +1971,7 @@ a {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: center;
   transition: transform .6s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
@@ -3300,6 +3302,11 @@ a {
 
   .extra-headline {
     font-size: clamp(3rem, 12vw, 6rem);
+  }
+
+  .extra-stage {
+    width: min(290px, 84vw);
+    margin: -48px auto 0;
   }
 
   .footer-bar {
