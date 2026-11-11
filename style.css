@@ -576,6 +576,19 @@ a {
   transform: scale(1.1);
 }
 
+.social-ig-pill {
+  width: auto;
+  padding: 0 14px;
+  border-radius: 999px;
+  gap: 8px;
+  font-size: .82rem;
+  font-weight: 700;
+}
+
+.social-ig-pill:hover {
+  transform: translateY(-1px);
+}
+
 .hero-since {
   font-size: .78rem;
   font-weight: 600;
@@ -2542,11 +2555,11 @@ a {
 }
 
 .about-inner {
-  max-width: 1320px;
+  max-width: 860px;
   margin: 0 auto;
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 80px;
+  grid-template-columns: 1fr;
+  gap: 32px;
   align-items: start;
 }
 
@@ -2763,6 +2776,19 @@ a {
   transform: scale(1.1);
 }
 
+.csocial-ig {
+  width: auto;
+  padding: 0 12px;
+  border-radius: 999px;
+  gap: 6px;
+  font-size: .78rem;
+  font-weight: 700;
+}
+
+.csocial-ig:hover {
+  transform: translateY(-1px);
+}
+
 .contact-direct-info {
   margin-top: 24px;
 }
@@ -2778,16 +2804,56 @@ a {
 
 .contact-email-link {
   display: block;
-  font-size: clamp(1.3rem, 2.2vw, 1.85rem);
+  font-size: clamp(1.2rem, 2.2vw, 1.85rem);
   font-weight: 800;
   color: var(--white);
   letter-spacing: -.02em;
-  margin-bottom: 14px;
+  margin-bottom: 20px;
+  word-break: break-word;
   transition: color .2s;
 }
 
 .contact-email-link:hover {
   color: var(--lime);
+}
+
+.contact-phones {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.contact-phone-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 14px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, .06);
+  border: 1px solid rgba(255, 255, 255, .14);
+  color: var(--white);
+  font-size: .88rem;
+  font-weight: 700;
+  letter-spacing: .02em;
+  transition: background .2s, color .2s, border-color .2s, transform .15s;
+}
+
+.contact-phone-pill i {
+  color: var(--lime);
+  font-size: .78rem;
+  transition: color .2s;
+}
+
+.contact-phone-pill:hover {
+  background: var(--lime);
+  color: var(--black);
+  border-color: var(--lime);
+  transform: translateY(-1px);
+}
+
+.contact-phone-pill:hover i {
+  color: var(--black);
 }
 
 .contact-blurb {

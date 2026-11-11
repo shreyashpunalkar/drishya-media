@@ -546,7 +546,7 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     } catch (err) {
       console.error('Submission error:', err);
-      showStatus('Network error occurred. Please check your connection or contact agency@drishyamedia.com directly.', 'error');
+      showStatus('Network error occurred. Please check your connection or contact drishyamedia693@gmail.com directly.', 'error');
     } finally {
       if (submitBtn) submitBtn.disabled = false;
       if (btnText) btnText.style.display = 'inline-flex';
