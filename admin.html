@@ -3,7 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Drishya Media — Leads CRM (RBAC Protected)</title>
+  <meta name="robots" content="noindex, nofollow, noarchive" />
+  <title>Drishya Media — Leads CRM</title>
 
   <!-- Google Fonts: Manrope & JetBrains Mono -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -843,7 +844,7 @@
         <!-- Auth-Only User Pill -->
         <div class="rbac-user-pill auth-only">
           <i class="fa-solid fa-user-shield" style="color: var(--lime);"></i>
-          <span id="userEmailNav">agency@drishyamedia.com</span>
+          <span id="userEmailNav">Admin</span>
           <span class="badge-superadmin">SUPER ADMIN</span>
         </div>
 
@@ -884,7 +885,7 @@
           <label for="adminEmailInput" class="input-label">Authorized Admin Email</label>
           <div class="input-field-wrap">
             <i class="fa-regular fa-envelope input-icon"></i>
-            <input type="email" id="adminEmailInput" class="login-input" placeholder="agency@drishyamedia.com" required autocomplete="username" />
+            <input type="email" id="adminEmailInput" class="login-input" placeholder="Enter admin email" required autocomplete="username" />
           </div>
         </div>
 
@@ -906,8 +907,7 @@
       </form>
 
       <div class="login-footer">
-        <span>Authorized Super Admin:</span>
-        <code class="rbac-hint-code" id="authorizedEmailHint">agency@drishyamedia.com</code>
+        <span><i class="fa-solid fa-lock"></i> Restricted Administrator Portal</span>
       </div>
     </div>
   </div>
@@ -1037,7 +1037,6 @@
     let allLeads = [];
     let currentModalLeadId = null;
     let currentAuthUser = null;
-    let authorizedAdminEmail = 'agency@drishyamedia.com';
 
     // Elements
     const loginGate = document.getElementById('loginGate');
@@ -1052,7 +1051,6 @@
     const loginSubmitBtn = document.getElementById('loginSubmitBtn');
     const logoutBtn = document.getElementById('logoutBtn');
     const userEmailNav = document.getElementById('userEmailNav');
-    const authorizedEmailHint = document.getElementById('authorizedEmailHint');
     const togglePasswordBtn = document.getElementById('togglePasswordBtn');
     const eyeIcon = document.getElementById('eyeIcon');
     const csvExportLink = document.getElementById('csvExportLink');
@@ -1086,13 +1084,6 @@
       try {
         const res = await fetch('/api/auth/me');
         const data = await res.json();
-        if (data.authorizedEmail) {
-          authorizedAdminEmail = data.authorizedEmail;
-          authorizedEmailHint.textContent = data.authorizedEmail;
-          if (!adminEmailInput.value) {
-            adminEmailInput.value = data.authorizedEmail;
-          }
-        }
 
         if (data.authenticated && data.user) {
           currentAuthUser = data.user;
@@ -1159,12 +1150,7 @@
             renderDashboard(data.user);
           }, 400);
         } else {
-          // Highlight RBAC denials specifically
-          if (res.status === 403 || data.code === 'RBAC_UNAUTHORIZED_EMAIL') {
-            showAlert(`⛔ Access Denied (RBAC): '${email}' is not authorized. Only the designated administrator (${authorizedAdminEmail}) has CRM access.`);
-          } else {
-            showAlert(data.error || 'Authentication failed. Please verify credentials.');
-          }
+          showAlert(data.error || 'Invalid email or password. Please verify credentials.');
         }
       } catch (err) {
         showAlert('Network error while connecting to security gate.');

@@ -37,8 +37,8 @@ const app = express();
 const PORT = process.env.PORT || 8001;
 
 // 1. RBAC Single-Email Configuration
-const ADMIN_EMAIL = (process.env.ADMIN_EMAIL || 'agency@drishyamedia.com').toLowerCase().trim();
-const ADMIN_PASSWORD = process.env.ADMIN_PASSWORD || 'drishya2026';
+const ADMIN_EMAIL = (process.env.ADMIN_EMAIL || 'drishyamedia693@gmail.com').toLowerCase().trim();
+const ADMIN_PASSWORD = process.env.ADMIN_PASSWORD || 'ASC123@dmedia';
 
 // 2. Initialize SQLite Database
 const dbPath = path.join(__dirname, 'bookings.db');
@@ -136,7 +136,7 @@ function requireAdminAuth(req, res, next) {
     if (session.email.toLowerCase().trim() !== ADMIN_EMAIL) {
       console.warn(`⛔ [RBAC Alert] Blocked non-authorized email session: ${session.email}`);
       return res.status(403).json({
-        error: `Access Denied: Only '${ADMIN_EMAIL}' has administrative permissions to view or edit CRM data.`,
+        error: 'Access Denied: Unauthorized administrator session.',
         code: 'RBAC_FORBIDDEN',
       });
     }
@@ -152,7 +152,32 @@ function requireAdminAuth(req, res, next) {
   }
 }
 
-// 4. Authentication Endpoints
+// 4. Authentication Endpoints (with in-memory rate limiting)
+const loginAttempts = new Map();
+const MAX_LOGIN_ATTEMPTS = 6;
+const LOGIN_WINDOW_MS = 15 * 60 * 1000;
+
+function checkLoginRateLimit(ip) {
+  const now = Date.now();
+  const entry = loginAttempts.get(ip);
+  if (!entry || now - entry.windowStart > LOGIN_WINDOW_MS) {
+    return { allowed: true };
+  }
+  if (entry.count >= MAX_LOGIN_ATTEMPTS) {
+    return { allowed: false, retryMinutes: Math.ceil((LOGIN_WINDOW_MS - (now - entry.windowStart)) / 60000) };
+  }
+  return { allowed: true };
+}
+
+function recordFailedLogin(ip) {
+  const now = Date.now();
+  const entry = loginAttempts.get(ip);
+  if (!entry || now - entry.windowStart > LOGIN_WINDOW_MS) {
+    loginAttempts.set(ip, { count: 1, windowStart: now });
+  } else {
+    entry.count += 1;
+  }
+}
 
 /**
  * POST /api/auth/login
@@ -160,6 +185,15 @@ function requireAdminAuth(req, res, next) {
  */
 app.post('/api/auth/login', (req, res) => {
   try {
+    const clientIp = (req.headers['x-forwarded-for'] || req.socket.remoteAddress || '').toString().split(',')[0].trim();
+    const rate = checkLoginRateLimit(clientIp);
+    if (!rate.allowed) {
+      return res.status(429).json({
+        error: `Too many failed login attempts. Try again in ${rate.retryMinutes} minute(s).`,
+        code: 'RATE_LIMITED',
+      });
+    }
+
     const { email, password } = req.body;
 
     if (!email || !password) {
@@ -168,22 +202,17 @@ app.post('/api/auth/login', (req, res) => {
 
     const normalizedEmail = email.toLowerCase().trim();
 
-    // STRICT RBAC CHECK: Only 1 email is authorized
-    if (normalizedEmail !== ADMIN_EMAIL) {
-      console.warn(`⛔ [RBAC Denial] Unauthorized email attempted login: ${normalizedEmail}`);
-      return res.status(403).json({
-        error: `Access Denied: '${email}' is not authorized. Only the designated administrator (${ADMIN_EMAIL}) can access this CRM.`,
-        code: 'RBAC_UNAUTHORIZED_EMAIL',
-      });
-    }
-
-    // Password Check
-    if (password !== ADMIN_PASSWORD) {
+    // STRICT RBAC + PASSWORD CHECK (generic error avoids email enumeration)
+    if (normalizedEmail !== ADMIN_EMAIL || password !== ADMIN_PASSWORD) {
+      recordFailedLogin(clientIp);
+      console.warn(`⛔ [RBAC Denial] Failed admin login attempt for: ${normalizedEmail}`);
       return res.status(401).json({
-        error: 'Invalid password. Please enter the correct agency admin password.',
+        error: 'Invalid email or password. Access denied.',
         code: 'INVALID_CREDENTIALS',
       });
     }
+
+    loginAttempts.delete(clientIp);
 
     // Generate Session Token
     const token = crypto.randomBytes(32).toString('hex');
@@ -252,7 +281,6 @@ app.get('/api/auth/me', (req, res) => {
     if (!token) {
       return res.json({
         authenticated: false,
-        authorizedEmail: ADMIN_EMAIL,
       });
     }
 
@@ -264,7 +292,6 @@ app.get('/api/auth/me', (req, res) => {
     if (!session || session.email.toLowerCase().trim() !== ADMIN_EMAIL) {
       return res.json({
         authenticated: false,
-        authorizedEmail: ADMIN_EMAIL,
       });
     }
 
@@ -274,12 +301,10 @@ app.get('/api/auth/me', (req, res) => {
         email: session.email,
         role: session.role,
       },
-      authorizedEmail: ADMIN_EMAIL,
     });
   } catch (err) {
     return res.json({
       authenticated: false,
-      authorizedEmail: ADMIN_EMAIL,
     });
   }
 });
@@ -503,9 +528,20 @@ app.get('/api/enquiries/export/csv', requireAdminAuth, (req, res) => {
   }
 });
 
-// 7. Admin Dashboard HTML Route
+// 7. Admin Dashboard HTML Route (noindex, hidden from search engines)
 app.get('/admin', (req, res) => {
+  res.setHeader('X-Robots-Tag', 'noindex, nofollow, noarchive');
   res.sendFile(path.join(__dirname, 'admin.html'));
+});
+
+// Block direct static access to sensitive backend/admin/database files
+const BLOCKED_FILES = new Set(['/admin.html', '/server.js', '/bookings.db', '/package.json', '/package-lock.json', '/.env', '/.gitignore']);
+app.use((req, res, next) => {
+  const reqPath = req.path.toLowerCase();
+  if (BLOCKED_FILES.has(reqPath) || reqPath.startsWith('/.') || reqPath.endsWith('.db') || reqPath.endsWith('.md')) {
+    return res.status(404).send('Not found');
+  }
+  next();
 });
 
 // 8. Static Assets (index.html, style.css, script.js, images)
