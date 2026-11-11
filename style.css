@@ -1166,6 +1166,11 @@ a {
   gap: 24px;
 }
 
+/* Headshot & 5th card span full width on a new row under 2×2 */
+.work-grid .headshot-card {
+  grid-column: 1 / -1;
+}
+
 .project-card {
   background: #1a1a1a;
   border-radius: var(--radius-lg);
@@ -1258,6 +1263,114 @@ a {
 .thumb-icon {
   font-size: 2.5rem;
   opacity: .5;
+}
+
+/* Brand placeholder cards */
+.brand-placeholder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  border-radius: var(--radius-md);
+  padding: 24px;
+}
+
+.brand-logo-text {
+  font-size: 2.2rem;
+  font-weight: 900;
+  letter-spacing: .08em;
+  color: var(--white);
+  opacity: .9;
+  line-height: 1;
+}
+
+.brand-tagline {
+  font-size: .78rem;
+  font-weight: 600;
+  color: rgba(255, 255, 255, .4);
+  letter-spacing: .06em;
+  text-transform: uppercase;
+}
+
+.wrench-placeholder {
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 60%, #0f3460 100%);
+  border: 1px solid rgba(255, 255, 255, .08);
+}
+
+.wrench-placeholder .brand-logo-text {
+  color: #e94560;
+}
+
+.motox-placeholder {
+  background: linear-gradient(135deg, #0d0d0d 0%, #1a0a00 60%, #2d1200 100%);
+  border: 1px solid rgba(255, 100, 0, .15);
+}
+
+.motox-placeholder .brand-logo-text {
+  color: #ff6b00;
+}
+
+.motocult-placeholder {
+  background: linear-gradient(135deg, #0d0d0d 0%, #0a1a0a 60%, #0d2b0d 100%);
+  border: 1px solid rgba(140, 255, 46, .12);
+}
+
+.motocult-placeholder .brand-logo-text {
+  color: var(--lime);
+}
+
+/* Rynox collage thumb */
+.rynox-thumb {
+  height: 240px !important;
+  padding: 0 !important;
+  background: #111;
+}
+
+.rynox-collage {
+  display: grid;
+  grid-template-columns: 1.6fr 1fr;
+  height: 100%;
+  gap: 2px;
+}
+
+.rynox-main {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform .4s ease;
+}
+
+.rynox-stack {
+  display: grid;
+  grid-template-rows: repeat(3, 1fr);
+  gap: 2px;
+  height: 100%;
+}
+
+.rynox-stack img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform .4s ease;
+}
+
+.project-card:hover .rynox-main,
+.project-card:hover .rynox-stack img {
+  transform: scale(1.04);
+}
+
+/* Headshot full-width card — taller thumb */
+.headshot-card .project-thumb {
+  height: 380px;
+}
+
+.headshot-card .project-thumb img {
+  object-position: center 20%;
 }
 
 /* ---- ORDINARY TO EXTRAORDINARY ---- */
