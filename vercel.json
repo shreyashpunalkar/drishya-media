@@ -1,23 +1,9 @@
 {
-  "version": 2,
-  "builds": [
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "rewrites": [
     {
-      "src": "server.js",
-      "use": "@vercel/node"
-    }
-  ],
-  "routes": [
-    {
-      "src": "/api/(.*)",
-      "dest": "https://drishya-media.onrender.com/api/$1"
-    },
-    {
-      "src": "/admin",
-      "dest": "https://drishya-media.onrender.com/admin"
-    },
-    {
-      "src": "/(.*)",
-      "dest": "server.js"
+      "source": "/:path*",
+      "destination": "https://drishya-media.onrender.com/:path*"
     }
   ]
 }
