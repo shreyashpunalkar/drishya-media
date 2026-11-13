@@ -627,12 +627,21 @@ app.use((req, res, next) => {
   next();
 });
 
-// 8. Static Assets (index.html, style.css, script.js, images)
+// 8. Explicit Root & Static Assets
+app.get('/', (req, res) => {
+  res.sendFile(path.join(__dirname, 'index.html'));
+});
+
 app.use(express.static(__dirname));
 
-// Start Server
-app.listen(PORT, () => {
-  console.log(`\n🚀 Drishya Media Server running at: http://localhost:${PORT}/`);
-  console.log(`🛡️  RBAC Protected CRM Dashboard: http://localhost:${PORT}/admin`);
-  console.log(`🔒 Single Authorized Email: ${ADMIN_EMAIL}\n`);
-});
+// Start Server locally or when run directly
+if (require.main === module || !process.env.VERCEL) {
+  app.listen(PORT, () => {
+    console.log(`\n🚀 Drishya Media Server running at: http://localhost:${PORT}/`);
+    console.log(`🛡️  RBAC Protected CRM Dashboard: http://localhost:${PORT}/admin`);
+    console.log(`🔒 Single Authorized Email: ${ADMIN_EMAIL}\n`);
+  });
+}
+
+// Export for Vercel Serverless Function runtime
+module.exports = app;

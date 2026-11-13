@@ -1,5 +1,0 @@
-node_modules/
-bookings.db
-.env
-.git/
-server.js
