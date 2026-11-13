@@ -1,0 +1,14 @@
+{
+  "version": 2,
+  "rewrites": [
+    {
+      "source": "/api/(.*)",
+      "destination": "https://drishya-media.onrender.com/api/$1"
+    },
+    {
+      "source": "/admin",
+      "destination": "https://drishya-media.onrender.com/admin"
+    }
+  ],
+  "cleanUrls": true
+}

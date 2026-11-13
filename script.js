@@ -522,8 +522,13 @@ document.addEventListener('DOMContentLoaded', () => {
     if (btnLoader) btnLoader.style.display = 'inline-flex';
     hideStatus();
 
+    // API Endpoint (works locally, on Render, or when hosted on Vercel)
+    const API_BASE = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1'
+      ? ''
+      : (window.location.origin.includes('onrender.com') ? '' : 'https://drishya-media.onrender.com');
+
     try {
-      const res = await fetch('/api/enquiries', {
+      const res = await fetch(`${API_BASE}/api/enquiries`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(payload),
