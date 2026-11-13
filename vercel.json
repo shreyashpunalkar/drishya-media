@@ -1,16 +1,20 @@
 {
-  "$schema": "https://openapi.vercel.sh/vercel.json",
-  "framework": null,
-  "outputDirectory": ".",
-  "rewrites": [
+  "version": 2,
+  "routes": [
     {
-      "source": "/api/(.*)",
-      "destination": "https://drishya-media.onrender.com/api/$1"
+      "src": "^/api/(.*)",
+      "dest": "https://drishya-media.onrender.com/api/$1"
     },
     {
-      "source": "/admin",
-      "destination": "https://drishya-media.onrender.com/admin"
+      "src": "^/admin$",
+      "dest": "https://drishya-media.onrender.com/admin"
+    },
+    {
+      "handle": "filesystem"
+    },
+    {
+      "src": "^/(.*)",
+      "dest": "/index.html"
     }
-  ],
-  "cleanUrls": true
+  ]
 }
