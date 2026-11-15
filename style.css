@@ -2535,10 +2535,41 @@ a {
   margin-left: 2px;
 }
 
+/* Custom package note below pricing grid */
+.custom-package-note {
+  margin-top: 28px;
+  padding: 16px 24px;
+  background: rgba(140, 255, 46, 0.08);
+  border: 1px dashed rgba(140, 255, 46, 0.4);
+  border-radius: var(--radius-md);
+  text-align: center;
+}
+
+.custom-package-note p {
+  margin: 0;
+  font-size: 0.95rem;
+  color: var(--text-dark);
+  line-height: 1.5;
+}
+
+.custom-note-link {
+  color: #0f4b00;
+  font-weight: 700;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  transition: opacity 0.2s;
+  display: inline-block;
+  margin-left: 4px;
+}
+
+.custom-note-link:hover {
+  opacity: 0.75;
+}
+
 /* ---- A LA CARTE ADD-ONS SECTION ---- */
 .addons-section {
-  margin-top: 72px;
-  padding-top: 56px;
+  margin-top: 56px;
+  padding-top: 48px;
   border-top: 1px solid rgba(0, 0, 0, .08);
   text-align: left;
 }
