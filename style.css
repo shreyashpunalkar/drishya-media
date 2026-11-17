@@ -1282,12 +1282,21 @@ a {
   letter-spacing: -.03em;
 }
 
+.brand-icon-wnk {
+  background: #0f1622;
+  border: 1px solid rgba(140, 255, 46, 0.6);
+  color: var(--lime);
+  font-size: .60rem;
+  font-weight: 900;
+  letter-spacing: .02em;
+}
+
 .work-grid {
-  max-width: 1320px;
+  max-width: 1380px;
   margin: 0 auto;
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 20px;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 16px;
 }
 
 .project-card {
@@ -3473,9 +3482,9 @@ a {
 }
 
 /* ---- RESPONSIVE ---- */
-@media (max-width: 1180px) {
+@media (max-width: 1240px) {
   .work-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 }
 

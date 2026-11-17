@@ -204,7 +204,7 @@
     <div class="stats-grid">
       <div class="stat-item">
         <div class="stat-num-wrap">
-          <div class="stat-number" data-target="5">0</div>
+          <div class="stat-number" data-target="6">0</div>
           <div class="stat-suffix">+</div>
         </div>
         <div class="stat-divider"></div>
@@ -213,7 +213,7 @@
       </div>
       <div class="stat-item">
         <div class="stat-num-wrap">
-          <div class="stat-number" data-target="30">0</div>
+          <div class="stat-number" data-target="200">0</div>
           <div class="stat-suffix">K+</div>
         </div>
         <div class="stat-divider"></div>
@@ -267,6 +267,10 @@
             <span class="brand-chip-icon brand-icon-light"><img src="brand_motox.png" alt="MotoXcellence logo" /></span>
             <span class="brand-chip-label">MotoXcellence</span>
           </div>
+          <div class="brand-chip" title="WNK Automotive">
+            <span class="brand-chip-icon brand-icon-wnk">WNK</span>
+            <span class="brand-chip-label">WNK Automotive</span>
+          </div>
           <div class="brand-chip" title="Rynox Gear">
             <span class="brand-chip-icon brand-icon-dark"><img src="brand_rynox.png" alt="Rynox logo" /></span>
             <span class="brand-chip-label">Rynox</span>
@@ -313,31 +317,66 @@
         </div>
       </div>
 
-      <!-- Brand 2: MotoXcellence -->
-      <div class="project-card" data-work-index="1" data-work-type="gallery" data-work-images="motox_main.jpg,motox_detail.jpg,motox_action1.jpg,motox_action2.jpg">
+      <!-- Brand 2: MotoXcellence (Kawasaki Z900 SC-Project Reel) -->
+      <div class="project-card" data-work-index="1" data-work-type="video" data-work-src="videos/motoxcellence_z900.mp4" data-work-poster="motoxcellence_z900_poster.jpg">
         <div class="project-meta">
-          <span class="project-tag">{ Moto Gear }</span>
+          <span class="project-tag">{ Performance Exhaust }</span>
         </div>
         <h3 class="project-name">MotoXcellence</h3>
-        <p class="project-service">Product Highlights &amp; Visuals</p>
-        <div class="project-thumb motox-thumb">
-          <div class="motox-collage">
-            <img src="motox_main.jpg" alt="MotoXcellence main view" class="motox-img motox-img-main" />
-            <div class="motox-strip">
-              <img src="motox_detail.jpg" alt="MotoXcellence finger guards detail" class="motox-img" />
-              <img src="motox_action1.jpg" alt="MotoXcellence palm sliders detail" class="motox-img" />
-              <img src="motox_action2.jpg" alt="MotoXcellence knuckle guards detail" class="motox-img" />
-            </div>
+        <p class="project-service">Kawasaki Z900 SC-Project S1-R Reel</p>
+        <div class="project-thumb video-thumb">
+          <video class="project-video" src="videos/motoxcellence_z900.mp4" muted loop playsinline preload="metadata" poster="motoxcellence_z900_poster.jpg"></video>
+          <div class="video-play-hint">
+            <span class="play-circle"><i class="fa-solid fa-play"></i></span>
+            <span class="play-label">Watch Reel</span>
           </div>
-          <div class="video-play-hint gallery-hint">
-            <span class="play-circle"><i class="fa-solid fa-images"></i></span>
-            <span class="play-label">4 Photos</span>
+          <div class="reel-controls">
+            <button type="button" class="reel-ctrl-btn reel-toggle-play" aria-label="Play or pause">
+              <i class="fa-solid fa-play"></i>
+            </button>
+            <div class="reel-ctrl-right">
+              <button type="button" class="reel-ctrl-btn reel-toggle-mute" aria-label="Mute or unmute">
+                <i class="fa-solid fa-volume-xmark"></i>
+              </button>
+              <button type="button" class="reel-ctrl-btn reel-open-modal" aria-label="Open full view">
+                <i class="fa-solid fa-expand"></i>
+              </button>
+            </div>
           </div>
         </div>
       </div>
 
-      <!-- Brand 3: MotoCult -->
-      <div class="project-card" data-work-index="2" data-work-type="video" data-work-src="videos/motocult.mp4" data-work-poster="motocult_poster.jpg">
+      <!-- Brand 3: WNK Automotive (Kawasaki H2 Detailing & PPF) -->
+      <div class="project-card" data-work-index="2" data-work-type="video" data-work-src="videos/wnk_automotive_h2.mp4" data-work-poster="wnk_automotive_poster.jpg">
+        <div class="project-meta">
+          <span class="project-tag">{ Superbike Detailing }</span>
+        </div>
+        <h3 class="project-name">WNK Automotive</h3>
+        <p class="project-service">Kawasaki H2 PPF &amp; Detailing Reel</p>
+        <div class="project-thumb video-thumb">
+          <video class="project-video" src="videos/wnk_automotive_h2.mp4" muted loop playsinline preload="metadata" poster="wnk_automotive_poster.jpg"></video>
+          <div class="video-play-hint">
+            <span class="play-circle"><i class="fa-solid fa-play"></i></span>
+            <span class="play-label">Watch Reel</span>
+          </div>
+          <div class="reel-controls">
+            <button type="button" class="reel-ctrl-btn reel-toggle-play" aria-label="Play or pause">
+              <i class="fa-solid fa-play"></i>
+            </button>
+            <div class="reel-ctrl-right">
+              <button type="button" class="reel-ctrl-btn reel-toggle-mute" aria-label="Mute or unmute">
+                <i class="fa-solid fa-volume-xmark"></i>
+              </button>
+              <button type="button" class="reel-ctrl-btn reel-open-modal" aria-label="Open full view">
+                <i class="fa-solid fa-expand"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Brand 4: MotoCult -->
+      <div class="project-card" data-work-index="3" data-work-type="video" data-work-src="videos/motocult.mp4" data-work-poster="motocult_poster.jpg">
         <div class="project-meta">
           <span class="project-tag">{ Moto Club }</span>
         </div>
@@ -365,8 +404,8 @@
         </div>
       </div>
 
-      <!-- Brand 4: Headshot Energy -->
-      <div class="project-card headshot-card" data-work-index="3" data-work-type="video" data-work-src="headshot_new.mp4" data-work-poster="headshot_poster.jpg">
+      <!-- Brand 5: Headshot Energy -->
+      <div class="project-card headshot-card" data-work-index="4" data-work-type="video" data-work-src="headshot_new.mp4" data-work-poster="headshot_poster.jpg">
         <div class="project-meta">
           <span class="project-tag">{ Energy Drink }</span>
         </div>
