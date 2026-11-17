@@ -2246,7 +2246,7 @@ a {
   line-height: 1.6;
 }
 
-/* ---- PRICING SECTION ---- */
+/* ---- CUSTOM PLAN & PRICING SECTION ---- */
 .pricing-section {
   background: var(--white);
   padding: 100px 32px;
@@ -2258,72 +2258,206 @@ a {
   text-align: center;
 }
 
+.custom-plan-badge {
+  display: inline-block;
+  font-size: .82rem;
+  font-weight: 800;
+  color: #000;
+  background: var(--lime);
+  padding: 5px 16px;
+  border-radius: 999px;
+  text-transform: uppercase;
+  letter-spacing: .05em;
+  margin-bottom: 16px;
+}
+
 .pricing-title {
-  font-size: clamp(2.8rem, 6vw, 5.5rem);
+  font-size: clamp(2.4rem, 5vw, 4.4rem);
   font-weight: 800;
   letter-spacing: -.04em;
   color: var(--text-dark);
   margin-bottom: 16px;
+  line-height: 1.15;
 }
 
 .pricing-sub {
-  font-size: 1rem;
+  font-size: 1.05rem;
   color: var(--text-mid);
   line-height: 1.6;
+  max-width: 760px;
+  margin: 0 auto 36px auto;
+}
+
+/* Custom Plan Showcase Hero Card */
+.custom-plan-hero-card {
+  background: #0d0f12;
+  color: var(--white);
+  border-radius: 24px;
+  padding: 52px 48px;
+  margin: 32px 0 20px 0;
+  text-align: left;
+  border: 1.5px solid rgba(140, 255, 46, 0.35);
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.12), 0 0 35px rgba(140, 255, 46, 0.08);
+  position: relative;
+  overflow: hidden;
+}
+
+.custom-plan-hero-card::before {
+  content: '';
+  position: absolute;
+  top: -120px;
+  right: -120px;
+  width: 320px;
+  height: 320px;
+  background: radial-gradient(circle, rgba(140, 255, 46, 0.16) 0%, transparent 70%);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.custom-plan-pill-tag {
+  display: inline-block;
+  font-size: .78rem;
+  font-weight: 800;
+  color: var(--lime);
+  background: rgba(140, 255, 46, 0.12);
+  border: 1px solid rgba(140, 255, 46, 0.3);
+  padding: 4px 14px;
+  border-radius: 999px;
+  margin-bottom: 16px;
+  letter-spacing: .03em;
+}
+
+.custom-plan-hero-title {
+  font-size: clamp(1.8rem, 3.5vw, 2.5rem);
+  font-weight: 800;
+  letter-spacing: -.03em;
+  color: var(--white);
+  margin-bottom: 12px;
+  line-height: 1.2;
+}
+
+.custom-plan-hero-desc {
+  font-size: 1.05rem;
+  color: #a0a6b5;
+  line-height: 1.6;
+  max-width: 780px;
+  margin-bottom: 34px;
+}
+
+.custom-plan-perks-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
   margin-bottom: 36px;
 }
 
-/* Toggle */
-.pricing-toggle-row {
+.custom-plan-perk {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 20px 20px;
+  border-radius: 16px;
+  transition: transform .25s ease, border-color .25s ease, background .25s ease;
+}
+
+.custom-plan-perk:hover {
+  transform: translateY(-3px);
+  border-color: rgba(140, 255, 46, 0.4);
+  background: rgba(255, 255, 255, 0.07);
+}
+
+.perk-icon {
+  font-size: 1.8rem;
+  flex-shrink: 0;
+  line-height: 1;
+}
+
+.perk-info h4 {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--white);
+  margin-bottom: 6px;
+}
+
+.perk-info p {
+  font-size: .88rem;
+  color: #9aa0a6;
+  line-height: 1.5;
+  margin: 0;
+}
+
+.custom-plan-cta-row {
   display: flex;
   align-items: center;
-  justify-content: center;
-  gap: 14px;
-  margin-bottom: 48px;
+  gap: 20px;
+  flex-wrap: wrap;
+  padding-top: 18px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
 }
 
-.toggle-label {
-  font-size: .95rem;
-  font-weight: 600;
-  color: var(--text-mid);
-}
-
-.toggle-switch {
-  width: 52px;
-  height: 28px;
-  background: #e63946;
-  border-radius: 999px;
-  position: relative;
-  cursor: pointer;
-  transition: background .3s;
-}
-
-.toggle-switch[aria-checked="true"] {
-  background: #e63946;
-}
-
-.toggle-thumb {
-  position: absolute;
-  top: 4px;
-  left: 4px;
-  width: 20px;
-  height: 20px;
-  background: var(--white);
-  border-radius: 50%;
-  transition: transform .3s;
-}
-
-.toggle-switch[aria-checked="true"] .toggle-thumb {
-  transform: translateX(24px);
-}
-
-.save-badge {
-  font-size: .78rem;
+.custom-plan-cta-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 16px 34px;
+  background: var(--lime);
+  color: #000;
+  font-size: 1rem;
   font-weight: 800;
-  color: #e63946;
-  margin-left: 4px;
+  border-radius: 999px;
+  text-decoration: none;
+  transition: transform .2s ease, box-shadow .2s ease, background .2s ease;
+  box-shadow: 0 8px 24px rgba(140, 255, 46, 0.25);
 }
 
+.custom-plan-cta-btn:hover {
+  background: #9dff4a;
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 0 12px 30px rgba(140, 255, 46, 0.4);
+}
+
+.custom-plan-cta-sub {
+  font-size: .88rem;
+  color: #a0a6b5;
+  font-weight: 500;
+}
+
+.addon-action-hint {
+  font-size: .75rem;
+  font-weight: 700;
+  color: #1e7005;
+  margin-top: auto;
+  padding-top: 10px;
+  display: inline-block;
+  opacity: .85;
+  transition: opacity .2s;
+}
+
+.addon-card:hover .addon-action-hint {
+  opacity: 1;
+}
+
+@media (max-width: 768px) {
+  .custom-plan-hero-card {
+    padding: 32px 20px;
+  }
+  .custom-plan-perks-grid {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+  .custom-plan-cta-row {
+    flex-direction: column;
+    align-items: stretch;
+    text-align: center;
+  }
+  .custom-plan-cta-btn {
+    justify-content: center;
+  }
+}
+
+/* Pricing Grid & Card styles kept for clean fallback */
 .pricing-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);

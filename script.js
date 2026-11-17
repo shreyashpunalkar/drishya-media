@@ -449,18 +449,16 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // Pre-select budget when clicking pricing plan buttons
-  document.querySelectorAll('.plan-btn').forEach(btn => {
-    btn.addEventListener('click', () => {
-      const card = btn.closest('.pricing-card');
-      const planName = card ? card.querySelector('.plan-name')?.textContent?.trim() : '';
+  // Pre-select budget when clicking custom plan button or CTA
+  document.querySelectorAll('.plan-btn, .custom-plan-cta-btn').forEach(btn => {
+    btn.addEventListener('click', (e) => {
       unlockBudgetSelect();
-      if (budgetSelect && planName) {
-        Array.from(budgetSelect.options).forEach(opt => {
-          if (opt.value.toLowerCase().includes(planName.toLowerCase())) {
-            budgetSelect.value = opt.value;
-          }
-        });
+      if (budgetSelect) {
+        budgetSelect.value = 'Custom Plan (Tailored to Business Requirements)';
+      }
+      const contactSection = document.getElementById('contact');
+      if (contactSection) {
+        contactSection.scrollIntoView({ behavior: 'smooth' });
       }
       setTimeout(() => {
         document.getElementById('clientName')?.focus();
@@ -473,14 +471,19 @@ document.addEventListener('DOMContentLoaded', () => {
     card.style.cursor = 'pointer';
     card.addEventListener('click', () => {
       unlockBudgetSelect();
+      const addonName = card.querySelector('.addon-name')?.textContent?.trim() || '';
       if (budgetSelect) {
-        budgetSelect.value = 'Custom Plan + Add-ons';
+        budgetSelect.value = 'A La Carte Content Deliverables';
+      }
+      const clientMsg = document.getElementById('clientMessage');
+      if (clientMsg && addonName && !clientMsg.value.includes(addonName)) {
+        clientMsg.value = (clientMsg.value ? clientMsg.value + '\n' : '') + `Interested in deliverable: ${addonName}`;
       }
       const contactSection = document.getElementById('contact');
       if (contactSection) {
         contactSection.scrollIntoView({ behavior: 'smooth' });
         setTimeout(() => {
-          document.getElementById('clientMessage')?.focus();
+          document.getElementById('clientName')?.focus();
         }, 500);
       }
     });
